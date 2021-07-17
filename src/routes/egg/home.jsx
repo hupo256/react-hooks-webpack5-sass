@@ -4,10 +4,11 @@ import Page from '@src/components/page/index'
 
 // 使用vue组件
 import { VueWrapper } from 'vuera'
-import Header from './Header.vue'
+import Hder from './Header.vue' // 本地
+import Header from 'vueSer/Header' // 远程
 
 // const ShowTex = Loadable(() => import('./showTex'))
-// const PError = Loadable(() => import('mktNext/pError'))
+// const Header = Loadable(() => import('vueSer/Header'))
 import BreadBar from '@src/components/breadBar'
 import ShowTex from './showTex'
 import SayHi from 'fdTest/sayHi'
@@ -20,7 +21,8 @@ export default function App() {
       <BreadBar />
       <ShowTex />
 
-      <VueWrapper component={Header} name="HPP VER" />
+      <VueWrapper component={Hder} name="HPP VER" />
+      <VueWrapper component={Header} name="WW EE" />
     </Page>
   )
 }

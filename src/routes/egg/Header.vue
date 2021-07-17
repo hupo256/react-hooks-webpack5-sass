@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>这是个标题{{ name }}</h1>
+    <h1>我来自vue的 sample 8081{{ name }}</h1>
     <h2>SUCCESSED ~~</h2>
   </div>
 </template>
