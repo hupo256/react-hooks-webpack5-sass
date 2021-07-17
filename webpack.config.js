@@ -10,7 +10,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const project = require('./project.config.js')
 const { thePublicPath, sourcemaps, env, staticImgPath, MODULE, imgUrl } = project
 const isProduction = env === 'prod'
-const resolve = (dir) => path.join(__dirname, dir)
+const resolve = dir => path.join(__dirname, dir)
 
 const webpackConfig = {
   entry: './src/index',
@@ -38,6 +38,11 @@ const webpackConfig = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.vue$/,
+        exclude: /node_modules/,
+        loader: 'vue-loader',
       },
       {
         test: /\.(c|sa|sc)ss$/,
@@ -153,7 +158,9 @@ const webpackConfig = {
       },
       remotes: {
         fdTest: 'fdTest@http://localhost:3004/remoteEntry.js',
+        vueSer: 'vueSer@http://localhost:3003/remoteEntry.js',
         mktAntd: 'mktAntd@http://localhost:8000/remoteEntry.js',
+        mktNext: 'mktNext@http://localhost:3005/static/chunks/remoteEntry.js',
       },
       shared: ['react', 'react-dom', 'react-router-dom'],
     }),
