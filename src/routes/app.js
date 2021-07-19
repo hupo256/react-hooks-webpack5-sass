@@ -4,7 +4,7 @@ import Loadable from '@src/components/loading/index'
 import BaseLayer from './baseLayer'
 
 import Egg from './egg' // 报告相关
-import LuckyDraw from './luckyDraw' // 报告相关
+// import LuckyDraw from './luckyDraw' // 报告相关
 
 const routes = () => (
   <BrowserRouter basename="/mkt/">
@@ -17,7 +17,7 @@ const routes = () => (
               <React.Fragment>
                 {/* <Route exact path="/xingg" render={() => <Egg />} /> */}
                 {Egg}
-                {LuckyDraw}
+                {/* {LuckyDraw} */}
               </React.Fragment>
             </BaseLayer>
           )
