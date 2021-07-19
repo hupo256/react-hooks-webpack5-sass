@@ -4,7 +4,7 @@ import Page from '@src/components/page/index'
 
 // 使用vue组件
 import { VueWrapper } from 'vuera'
-import Hder from './Header.vue' // 本地
+import Head from '@src/components/vueHead' // 本地
 import Header from 'vueSer/Header' // 远程
 
 // const ShowTex = Loadable(() => import('./showTex'))
@@ -21,8 +21,9 @@ export default function App() {
       <BreadBar />
       <ShowTex />
 
-      <VueWrapper component={Hder} name="HPP VER" />
+      {/* vue components */}
       <VueWrapper component={Header} name="WW EE" />
+      <Head name="112233" />
     </Page>
   )
 }

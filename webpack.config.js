@@ -155,6 +155,7 @@ const webpackConfig = {
         './showTex': './src/routes/egg/showTex',
         './breadBar': './src/components/breadBar',
         './artComponents': './src/components/artComponents',
+        './vueHead': './src/components/vueHead',
       },
       remotes: {
         fdTest: 'fdTest@http://localhost:3004/remoteEntry.js',
