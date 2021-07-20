@@ -12,6 +12,9 @@ const { thePublicPath, sourcemaps, env, staticImgPath, MODULE, imgUrl } = projec
 const isProduction = env === 'prod'
 const resolve = dir => path.join(__dirname, dir)
 
+const inSiteCommon = require('./inSiteCommon')
+console.log(inSiteCommon)
+
 const webpackConfig = {
   entry: './src/index',
   mode: 'development',
@@ -130,6 +133,23 @@ const webpackConfig = {
     },
   },
   plugins: [
+    new ModuleFederationPlugin({
+      name: 'sample',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './showTex': './src/routes/egg/showTex',
+        // './breadBar': './src/components/breadBar',
+        // './artComponents': './src/components/artComponents',
+        // './vueHead': './src/components/vueHead',
+        ...inSiteCommon,
+      },
+      remotes: {
+        fdTest: 'fdTest@http://localhost:3004/remoteEntry.js',
+        vueSer: 'vueSer@http://localhost:3003/remoteEntry.js',
+        mktAntd: 'mktAntd@http://localhost:8000/remoteEntry.js',
+      },
+      shared: ['react', 'react-dom', 'react-router-dom'],
+    }),
     new CleanWebpackPlugin(['' + MODULE, 'dist']),
     new HtmlWebPackPlugin({
       template: './src/index.html',
@@ -147,23 +167,6 @@ const webpackConfig = {
     }),
     new webpack.DefinePlugin({
       IS_ENV: JSON.stringify(env),
-    }),
-    new ModuleFederationPlugin({
-      name: 'sample',
-      filename: 'remoteEntry.js',
-      exposes: {
-        './showTex': './src/routes/egg/showTex',
-        './breadBar': './src/components/breadBar',
-        './artComponents': './src/components/artComponents',
-        './vueHead': './src/components/vueHead',
-      },
-      remotes: {
-        fdTest: 'fdTest@http://localhost:3004/remoteEntry.js',
-        vueSer: 'vueSer@http://localhost:3003/remoteEntry.js',
-        mktAntd: 'mktAntd@http://localhost:8000/remoteEntry.js',
-        mktNext: 'mktNext@http://localhost:3005/static/chunks/remoteEntry.js',
-      },
-      shared: ['react', 'react-dom', 'react-router-dom'],
     }),
   ],
 }
