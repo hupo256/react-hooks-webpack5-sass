@@ -1,5 +1,6 @@
 react17 + antd + webpack5 + sass 打造的微前端 service层
 用 vuera 作为中间件， 磨平 react 与 vue之间的差异。
+向其他项目提供共享的组件服务
 
 1. git clone ...
 
