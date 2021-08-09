@@ -1,21 +1,21 @@
-安我基因采样流程与绑定采样器
-1. git clone http://gitlab.andall.com/front-end/h5-sample.git
+react17 + antd + webpack5 + sass 打造的微前端 service层
 
-2. cd h5-sample  
+1. git clone ...
 
-3. 安装依赖 npm install  
+2. cd ...
 
-4. 启动 npm start  
-访问入口 http://ip:8081/andall-sample/
+3. 安装依赖 yarn 
+
+4. 启动 yarn start  
+访问入口 http://ip:8081/mtk/
 
 5. 打包  
-开发 npm run dev  
-测试 npm run test  
-生产 npm run build 
+开发 yarn dev  
+测试 yarn test  
+生产 yarn build 
 
 
-
-6.  node 版本v8.0以上  
+6.  node 版本v10.0以上  
 
 7.  相关文档  
 ajax库 axios  https://www.kancloud.cn/yunye/axios/234845  
